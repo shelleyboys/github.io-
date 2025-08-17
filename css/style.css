@@ -78,3 +78,14 @@ h2 {
     border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
 }
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.photo-gallery img {
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
