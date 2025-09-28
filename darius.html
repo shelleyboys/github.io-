@@ -1,87 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Darius’ basketball highlights, activities, and journey toward Athlete of the Year.">
-    <title>Darius | Shelley Boys</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Darius’ basketball highlights, activities, and journey toward Athlete of the Year.">
+  <title>Darius | Shelley Boys</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Sidebar + content layout */
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    .sidebar {
+      width: 220px;
+      padding: 15px;
+      background: #f7f7f7;
+      border-right: 1px solid #ccc;
+      position: sticky;
+      top: 0; /* sidebar stays visible when scrolling */
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .sidebar h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar ul li {
+      margin: 8px 0;
+    }
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+    article {
+      margin-bottom: 40px;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>Shelley Boys</h1>
-    <p>Family blog and athlete highlights</p>
+  <h1>Shelley Boys</h1>
+  <p>Family blog and athlete highlights</p>
 </header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="darius.html">Darius</a>
-    <a href="damarius.html">Da’Marius</a>
-    <a href="about.html">About</a>
-    <a href="shop.html">Shop</a>
+  <a href="index.html">Home</a>
+  <a href="darius.html">Darius</a>
+  <a href="damarius.html">Da’Marius</a>
+  <a href="about.html">About</a>
+  <a href="shop.html">Shop</a>
 </nav>
 
 <div class="container">
-    <div class="main">
-        <h2>Darius’ Basketball Highlights</h2>
-        <!-- Placeholder for Darius posts -->
-        <article>
-          <article>
-    <h3>Before School Days</h3>
-    <p>
-        Basketball has been a part of his life from the very beginning. Even before he started school, 
-        you could find him with a ball in his hands, dribbling in the driveway, shooting on a plastic 
-        hoop in the living room, and watching games with wide eyes like he was already studying the sport. 
-        Those early days were filled with endless energy, determination, and a pure love for the game. 
-        By the time most kids were just learning their ABCs, he was already learning how to pass, 
-        dribble, and shoot. That early passion set the foundation for everything he’s accomplished on the court today.
-    </p>
+  <!-- Sidebar menu -->
+  <aside class="sidebar">
+    <h3>Darius' Seasons</h3>
+    <ul>
+      <li><a href="#football-fall-2025">Football - Fall 2025</a></li>
+      <li><a href="#basketball-3on3-fall-2025">Basketball - 3 on 3 - Fall 2025</a></li>
+      <li><a href="#basketball-winter-2025">Basketball - Winter 2025</a></li>
+      <li><a href="#aao-spring-2026">AAO League - Spring 2026</a></li>
+    </ul>
+  </aside>
 
-    <!-- Photo section -->
-    <div class="photo-gallery">
-        <img src="images/darius1.JPG" alt="Darius playing basketball (early days)" style="max-width:45%; margin:5px;">
-        <img src="images/darius2.JPG" alt="Darius with basketball" style="max-width:45%; margin:5px;">
-    </div>
-</article>
-        </article>
-        <article>
-            <h3>Kindergarden Basketball Beginnings</h3>
-            <p>Even in kindergarten, he was already showing a love for basketball that couldn’t be contained. He practiced layups on the small court, learned to dribble and pass, and quickly picked up the basics of the game. His determination and energy paid off when he earned his very first trophy—an exciting moment that marked the start of a lifelong basketball journey. Holding that trophy, it was clear that this little player had big dreams on the court </p>
-               <!-- Photo section -->
-    <div class="photo-gallery">
+  <!-- Main content -->
+  <div class="main">
+    <h2>Darius’ Basketball Highlights</h2>
+
+    <article id="football-fall-2025">
+      <h3>Football - Fall 2025</h3>
+      <p>Coming soon: photos, videos, and highlights from the football season.</p>
+    </article>
+
+    <article id="basketball-3on3-fall-2025">
+      <h3>Basketball - 3 on 3 - Fall 2025</h3>
+      <p>Placeholder for 3-on-3 basketball updates, videos, and pictures.</p>
+    </article>
+
+    <article id="basketball-winter-2025">
+      <h3>Basketball - Winter 2025</h3>
+      <p>
+        Even in kindergarten, he was already showing a love for basketball that couldn’t be contained. 
+        He practiced layups on the small court, learned to dribble and pass, and quickly picked up the 
+        basics of the game. His determination and energy paid off when he earned his very first trophy.
+      </p>
+      <div class="photo-gallery">
         <img src="images/darius3.jpg" alt="Darius playing basketball (First Trophy)" style="max-width:45%; margin:5px;">
         <img src="images/darius4.jpg" alt="Darius with basketball" style="max-width:45%; margin:5px;">
-    </div>
-            <iframe width="480" height="320" 
-  src="https://www.youtube.com/embed/ckvqzMOKCTs" 
-  title="Darius Kindergarten Basketball" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen>
-</iframe>
-        </article>
-        <article>
-            <h3>Darius' Journey Continues</h3>
-            <p>By 3rd and 4th grade, Darius had already taken a big step forward in his basketball journey. He joined AAO Basketball in Fayetteville, where practices and games pushed him to sharpen his skills and learn what it meant to play at a higher level. During the summers, he hit the court with Takeover Academy, competing in Hardwood Tournaments that gave him a taste of real competition and teamwork on a bigger stage.
-These years weren’t just about learning drills; they were about building confidence, handling tough games, and growing into a player who could hold his own against strong opponents. Every tournament, every game, and every practice added another layer to his development and his love for basketball.</p>
-            <div class="photo-gallery">
-        <img src="images/darius5.jpg" alt="Fayetteville Team" style="max-width:45%; margin:5px;">
-        <img src="images/darius6.jpg" alt="Takeover Academy" style="max-width:45%; margin:5px;">
-    </div>
-        </article>
-         <article>
-            <h3>AAO Power League Standout</h3>
-            <p>Darius quickly proved himself as more than just a team player. He became a standout in the AAO Power League. Competing against some of the toughest young athletes in the region, he showed consistency, hustle, and skill that set him apart on the court. Whether it was driving hard to the basket, playing smart defense, or keeping his team energized, Darius made his presence known. His time in the Power League not only sharpened his game but also solidified his reputation as a player to watch.</p>
-            <div class="photo-gallery">
-        <img src="images/darius7.jpg" alt="Darius playing basketball (First Trophy)" style="max-width:45%; margin:5px;">
-    </div>
-        </article>
-    </div>
+      </div>
+      <iframe width="480" height="320" 
+        src="https://www.youtube.com/embed/ckvqzMOKCTs" 
+        title="Darius Kindergarten Basketball" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </article>
+
+    <article id="aao-spring-2026">
+      <h3>AAO League - Spring 2026</h3>
+      <p>
+        Darius quickly proved himself as more than just a team player. He became a standout in the AAO Power League. 
+        Competing against some of the toughest young athletes in the region, he showed consistency, hustle, and skill 
+        that set him apart on the court.
+      </p>
+      <div class="photo-gallery">
+        <img src="images/darius7.jpg" alt="Darius AAO Power League" style="max-width:45%; margin:5px;">
+      </div>
+    </article>
+  </div>
 </div>
 
 <footer>
-    <p>&copy; Shelley Boys | Athlete of the Year</p>
+  <p>&copy; Shelley Boys | Athlete of the Year</p>
 </footer>
 
 </body>
