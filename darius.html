@@ -7,6 +7,13 @@
   <title>Darius | Shelley Boys</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
+    /* Overall page wrapper for consistent width */
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
     /* Sidebar + content layout */
     .container {
       display: flex;
@@ -48,131 +55,133 @@
     article {
       margin-bottom: 40px;
     }
-    header, nav {
-  max-width: 1200px;  /* match your main width */
-  margin: 0 auto;
-  padding: 0 20px;    /* match .main padding */
-}
+
+    header, nav, footer {
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
 
-
-<div class="container">
+<div class="page-wrapper">
   <header>
-  <h1>Shelley Boys</h1>
-  <p>Family blog and athlete highlights</p>
-</header>
+    <h1>Shelley Boys</h1>
+    <p>Family blog and athlete highlights</p>
+  </header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="https://www.maxpreps.com/ar/nashville/nashville-scrappers/athletes/demetrus-shelley/bio/?careerid=qmdejdnfjhque">Demetrus</a>
-  <a href="darius.html">Darius</a>
-  <a href="damarius.html">Da’Marius</a>
-  <a href="shop.html">Shop</a>
-</nav>
-  <!-- Sidebar menu -->
-  <aside class="sidebar">
-    <h3>Darius' Seasons</h3>
-    <ul>
-      <li><a href="#football-fall-2025">Football - Fall 2025</a></li>
-      <li><a href="#basketball-3on3-fall-2025">Basketball - 3 on 3 - Fall 2025</a></li>
-      <li><a href="#basketball-winter-2025">Basketball - Winter 2025</a></li>
-      <li><a href="#aao-spring-2025">Basketball - AAO League - Spring/Summer 2025</a></li>
-      <li><a href="#aboutdarius">About Darius</a></li>
-    </ul>
-  </aside>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="https://www.maxpreps.com/ar/nashville/nashville-scrappers/athletes/demetrus-shelley/bio/?careerid=qmdejdnfjhque">Demetrus</a>
+    <a href="darius.html">Darius</a>
+    <a href="damarius.html">Da’Marius</a>
+    <a href="shop.html">Shop</a>
+  </nav>
 
-  <!-- Main content -->
-  <div class="main">
-    <h2>Darius’ Basketball Highlights</h2>
+  <div class="container">
+    <!-- Sidebar menu -->
+    <aside class="sidebar">
+      <h3>Darius' Seasons</h3>
+      <ul>
+        <li><a href="#football-fall-2025">Football - Fall 2025</a></li>
+        <li><a href="#basketball-3on3-fall-2025">Basketball - 3 on 3 - Fall 2025</a></li>
+        <li><a href="#basketball-winter-2025">Basketball - Winter 2025</a></li>
+        <li><a href="#aao-spring-2025">Basketball - AAO League - Spring/Summer 2025</a></li>
+        <li><a href="#aboutdarius">About Darius</a></li>
+      </ul>
+    </aside>
 
-    <article id="football-fall-2025">
-      <h3>Football - Fall 2025</h3>
-      <p>One of Darius’ most exciting football moments came when he intercepted a pass 
-    and ran it all the way back for a touchdown. It was a game-changer that showed 
-    not only his speed and awareness on the field, but also his ability to step up 
-    and make big plays when it counts.</p>
-       <iframe width="480" height="320" 
-        src="https://www.youtube.com/embed/lGeJrc7ip8U" 
-        title="Darius Interception" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-         <iframe width="480" height="320" 
-        src="https://www.youtube.com/embed/o6bhBrY6xFk" 
-        title="Darius Highlights" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </article>
+    <!-- Main content -->
+    <div class="main">
+      <h2>Darius’ Basketball Highlights</h2>
 
-    <article id="basketball-3on3-fall-2025">
-      <h3>Basketball - 3 on 3 - Fall 2025</h3>
-      <p>The 3-on-3 tournaments give Darius the chance to shine in a fast-paced, high-energy 
-    setting. With fewer players on the court, every possession mattered, and he shows 
-    his ability to handle pressure, create scoring opportunities, and push the tempo. 
-    These games are the perfect stage for his competitive drive and love for the game.</p>
-      <div class="photo-gallery">
-        <img src="images/darius3o3-2025.PNG" alt="Darius 3 on 3" style="max-width:45%; margin:5px;">
-        <img src="images/darius3o3-2025-1.PNG" alt="Darius 3 on 3" style="max-width:45%; margin:5px;">
-        <img src="images/darius3o3-2025-2.PNG" alt="Darius 3 on 3" style="max-width:45%; margin:5px;">
-        <img src="images/darius3o3-2025-pl.JPEG" alt="Darius 3 on 3" style="max-width:45%; margin:5px;">
-      </div>
-    </article>
+      <article id="football-fall-2025">
+        <h3>Football - Fall 2025</h3>
+        <p>One of Darius’ most exciting football moments came when he intercepted a pass 
+        and ran it all the way back for a touchdown. It was a game-changer that showed 
+        not only his speed and awareness on the field, but also his ability to step up 
+        and make big plays when it counts.</p>
+        <iframe width="480" height="320" 
+          src="https://www.youtube.com/embed/lGeJrc7ip8U" 
+          title="Darius Interception" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        <iframe width="480" height="320" 
+          src="https://www.youtube.com/embed/o6bhBrY6xFk" 
+          title="Darius Highlights" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </article>
 
-    
-    <article id="basketball-winter-2025">
-      <h3>Basketball - Winter 2025</h3>
-      <p>Watch here for Winter 2025 Basketball highlights!</p>
-    </article>
+      <article id="basketball-3on3-fall-2025">
+        <h3>Basketball - 3 on 3 - Fall 2025</h3>
+        <p>The 3-on-3 tournaments give Darius the chance to shine in a fast-paced, high-energy 
+        setting. With fewer players on the court, every possession mattered, and he shows 
+        his ability to handle pressure, create scoring opportunities, and push the tempo. 
+        These games are the perfect stage for his competitive drive and love for the game.</p>
+        <div class="photo-gallery">
+          <img src="images/darius3o3-2025.PNG" alt="Darius 3 on 3" style="max-width:45%; margin:5px;">
+          <img src="images/darius3o3-2025-1.PNG" alt="Darius 3 on 3" style="max-width:45%; margin:5px;">
+          <img src="images/darius3o3-2025-2.PNG" alt="Darius 3 on 3" style="max-width:45%; margin:5px;">
+          <img src="images/darius3o3-2025-pl.JPEG" alt="Darius 3 on 3" style="max-width:45%; margin:5px;">
+        </div>
+      </article>
 
-    <article id="aao-spring-2025">
-      <h3>AAO League - Spring-Summer 2025</h3>
-      <p>
-        Darius quickly proved himself as more than just a team player. He became a standout in the AAO Power League. 
-        Competing against some of the toughest young athletes in the region, he showed consistency, hustle, and skill 
-        that set him apart on the court.
-      </p>
-      <div class="photo-gallery">
-        <img src="images/darius7.jpg" alt="Darius AAO Power League" style="max-width:45%; margin:5px;">
-        <img src="images/darius-ss-2025.PNG" alt="Darius AAO Power League" style="max-width:45%; margin:5px;">
-      </div>
-    </article>
-    <article id="athleteofyear2025">
-      <h3>Thanks for the Votes for Darius – Athlete of the Year<</h3>
-       Darius was in the running for <a href="https://athleteoftheyear.org/2025/darius-044b" target="_blank">Athlete of the Year 2025</a>. He ended up in 12th place in his category. We are so proud!
-      <div class="photo-gallery">
-        <img src="images/darius-ss-2025-1.PNG" alt="Darius Athlete of the Year" style="max-width:45%; margin:5px;">
-      </div>
-    </article>
-    <article id="aboutdarius">
-      <h3>About Darius</h3>
-      <p>
-        Even in kindergarten, he was already showing a love for basketball that couldn’t be contained. 
-        He practiced layups on the small court, learned to dribble and pass, and quickly picked up the 
-        basics of the game. His determination and energy paid off when he earned his very first trophy.
-      </p>
-      <div class="photo-gallery">
-        <img src="images/darius3.jpg" alt="Darius playing basketball (First Trophy)" style="max-width:45%; margin:5px;">
-        <img src="images/darius4.jpg" alt="Darius with basketball" style="max-width:45%; margin:5px;">
-      </div>
-      <iframe width="480" height="320" 
-        src="https://www.youtube.com/embed/ckvqzMOKCTs" 
-        title="Darius Kindergarten Basketball" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </article>
+      <article id="basketball-winter-2025">
+        <h3>Basketball - Winter 2025</h3>
+        <p>Watch here for Winter 2025 Basketball highlights!</p>
+      </article>
+
+      <article id="aao-spring-2025">
+        <h3>AAO League - Spring-Summer 2025</h3>
+        <p>
+          Darius quickly proved himself as more than just a team player. He became a standout in the AAO Power League. 
+          Competing against some of the toughest young athletes in the region, he showed consistency, hustle, and skill 
+          that set him apart on the court.
+        </p>
+        <div class="photo-gallery">
+          <img src="images/darius7.jpg" alt="Darius AAO Power League" style="max-width:45%; margin:5px;">
+          <img src="images/darius-ss-2025.PNG" alt="Darius AAO Power League" style="max-width:45%; margin:5px;">
+        </div>
+      </article>
+
+      <article id="athleteofyear2025">
+        <h3>Thanks for the Votes for Darius – Athlete of the Year</h3>
+        <p>Darius was in the running for <a href="https://athleteoftheyear.org/2025/darius-044b" target="_blank">Athlete of the Year 2025</a>. He ended up in 12th place in his category. We are so proud!</p>
+        <div class="photo-gallery">
+          <img src="images/darius-ss-2025-1.PNG" alt="Darius Athlete of the Year" style="max-width:45%; margin:5px;">
+        </div>
+      </article>
+
+      <article id="aboutdarius">
+        <h3>About Darius</h3>
+        <p>
+          Even in kindergarten, he was already showing a love for basketball that couldn’t be contained. 
+          He practiced layups on the small court, learned to dribble and pass, and quickly picked up the 
+          basics of the game. His determination and energy paid off when he earned his very first trophy.
+        </p>
+        <div class="photo-gallery">
+          <img src="images/darius3.jpg" alt="Darius playing basketball (First Trophy)" style="max-width:45%; margin:5px;">
+          <img src="images/darius4.jpg" alt="Darius with basketball" style="max-width:45%; margin:5px;">
+        </div>
+        <iframe width="480" height="320" 
+          src="https://www.youtube.com/embed/ckvqzMOKCTs" 
+          title="Darius Kindergarten Basketball" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </article>
+    </div>
   </div>
-</div>
 
-<footer>
-  <p>&copy; Shelley Boys | Athlete of the Year</p>
-</footer>
+  <footer>
+    <p>&copy; Shelley Boys | Athlete of the Year</p>
+  </footer>
+</div>
 
 </body>
 </html>
