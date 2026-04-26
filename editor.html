@@ -40,10 +40,26 @@ button {
 .gallery img {
     width: 200px;
     margin: 5px;
+    border-radius: 6px;
 }
 
 textarea.outputBox {
     height: 200px;
+}
+
+/* Upload box */
+.upload-box {
+    border: 2px dashed #aaa;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+    background: #fafafa;
+    cursor: pointer;
+}
+
+.upload-box.dragover {
+    border-color: black;
+    background: #eee;
 }
 </style>
 </head>
@@ -66,7 +82,13 @@ textarea.outputBox {
 
     <textarea id="description" placeholder="Write description..."></textarea>
 
-    <input type="text" id="images" placeholder="Image URLs (comma separated)">
+    <label>Upload Images:</label>
+    <div class="upload-box" id="uploadBox">
+        Click or drag images here
+        <input type="file" id="imageUpload" accept="image/*" multiple hidden>
+    </div>
+
+    <div id="imagePreview" class="gallery"></div>
 
     <input type="text" id="video" placeholder="YouTube link (optional)">
 
@@ -82,11 +104,72 @@ textarea.outputBox {
 </div>
 
 <script>
-function generateArticle() {
-    let person = document.getElementById("person").value;
+let uploadedFiles = [];
+
+// Upload box click
+document.getElementById("uploadBox").onclick = () => {
+    document.getElementById("imageUpload").click();
+};
+
+// Handle file selection
+document.getElementById("imageUpload").addEventListener("change", handleFiles);
+
+// Drag + drop
+let uploadBox = document.getElementById("uploadBox");
+
+uploadBox.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    uploadBox.classList.add("dragover");
+});
+
+uploadBox.addEventListener("dragleave", () => {
+    uploadBox.classList.remove("dragover");
+});
+
+uploadBox.addEventListener("drop", (e) => {
+    e.preventDefault();
+    uploadBox.classList.remove("dragover");
+    handleFiles({ target: { files: e.dataTransfer.files } });
+});
+
+function handleFiles(event) {
+    let files = Array.from(event.target.files);
+
+    files.forEach(file => {
+        if (!file.type.startsWith("image/")) return;
+
+        uploadedFiles.push(file);
+
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let img = document.createElement("img");
+            img.src = e.target.result;
+            document.getElementById("imagePreview").appendChild(img);
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+// Convert file → base64
+function toBase64(file) {
+    return new Promise((resolve, reject) => {
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+}
+
+// Extract YouTube ID safely
+function getYouTubeID(url) {
+    let regExp = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/;
+    let match = url.match(regExp);
+    return match ? match[1] : null;
+}
+
+async function generateArticle() {
     let title = document.getElementById("title").value;
     let desc = document.getElementById("description").value;
-    let images = document.getElementById("images").value.split(",");
     let video = document.getElementById("video").value;
 
     let articleHTML = `
@@ -99,22 +182,20 @@ function generateArticle() {
         <div class="gallery">
 `;
 
-    images.forEach(img => {
-        if (img.trim() !== "") {
-            articleHTML += `<img src="${img.trim()}" width="300">\n`;
-        }
-    });
+    // Add images
+    for (let file of uploadedFiles) {
+        let base64 = await toBase64(file);
+        articleHTML += `<img src="${base64}" width="300">\n`;
+    }
 
-    if (video.includes("youtube")) {
-        let videoId = video.split("v=")[1];
-        if (videoId) {
-            videoId = videoId.split("&")[0];
-            articleHTML += `
+    // Add YouTube
+    let videoId = getYouTubeID(video);
+    if (videoId) {
+        articleHTML += `
 <iframe width="480" height="320"
 src="https://www.youtube.com/embed/${videoId}"
 frameborder="0" allowfullscreen></iframe>
 `;
-        }
     }
 
     articleHTML += `
@@ -123,10 +204,7 @@ frameborder="0" allowfullscreen></iframe>
 </article>
 `;
 
-    // Show preview
     document.getElementById("preview").innerHTML = articleHTML;
-
-    // Show copyable HTML
     document.getElementById("htmlOutput").value = articleHTML;
 }
 </script>
