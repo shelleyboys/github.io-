@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shelley Boys Editor</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.editor, .output {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.gallery img {
+    width: 200px;
+    margin: 5px;
+}
+
+textarea.outputBox {
+    height: 200px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Shelley Boys Content Editor</h1>
+
+<div class="editor">
+    <h2>Create Article</h2>
+
+    <label>Select Page:</label>
+    <select id="person">
+        <option value="darius">Darius</option>
+        <option value="damarius">Da’Marius</option>
+        <option value="demetrus">Demetrus</option>
+    </select>
+
+    <input type="text" id="title" placeholder="Article Title">
+
+    <textarea id="description" placeholder="Write description..."></textarea>
+
+    <input type="text" id="images" placeholder="Image URLs (comma separated)">
+
+    <input type="text" id="video" placeholder="YouTube link (optional)">
+
+    <button onclick="generateArticle()">Generate Article</button>
+</div>
+
+<div class="output">
+    <h2>Preview</h2>
+    <div id="preview"></div>
+
+    <h2>Copy This HTML</h2>
+    <textarea id="htmlOutput" class="outputBox"></textarea>
+</div>
+
+<script>
+function generateArticle() {
+    let person = document.getElementById("person").value;
+    let title = document.getElementById("title").value;
+    let desc = document.getElementById("description").value;
+    let images = document.getElementById("images").value.split(",");
+    let video = document.getElementById("video").value;
+
+    let articleHTML = `
+<article>
+    <h3>${title}</h3>
+    <p>${desc}</p>
+
+    <section class="photos">
+        <h3>Photo Highlights</h3>
+        <div class="gallery">
+`;
+
+    images.forEach(img => {
+        if (img.trim() !== "") {
+            articleHTML += `<img src="${img.trim()}" width="300">\n`;
+        }
+    });
+
+    if (video.includes("youtube")) {
+        let videoId = video.split("v=")[1];
+        if (videoId) {
+            videoId = videoId.split("&")[0];
+            articleHTML += `
+<iframe width="480" height="320"
+src="https://www.youtube.com/embed/${videoId}"
+frameborder="0" allowfullscreen></iframe>
+`;
+        }
+    }
+
+    articleHTML += `
+        </div>
+    </section>
+</article>
+`;
+
+    // Show preview
+    document.getElementById("preview").innerHTML = articleHTML;
+
+    // Show copyable HTML
+    document.getElementById("htmlOutput").value = articleHTML;
+}
+</script>
+
+</body>
+</html>
