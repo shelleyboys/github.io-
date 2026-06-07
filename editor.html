@@ -162,9 +162,19 @@ function toBase64(file) {
 
 // Extract YouTube ID safely
 function getYouTubeID(url) {
-    let regExp = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/;
-    let match = url.match(regExp);
-    return match ? match[1] : null;
+    const patterns = [
+        /youtube\.com\/watch\?v=([^&]+)/,
+        /youtu\.be\/([^?&]+)/,
+        /youtube\.com\/shorts\/([^?&]+)/,
+        /youtube\.com\/embed\/([^?&]+)/
+    ];
+
+    for (const pattern of patterns) {
+        const match = url.match(pattern);
+        if (match) return match[1];
+    }
+
+    return null;
 }
 
 async function generateArticle() {
