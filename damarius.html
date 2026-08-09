@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Da'Marius' basketball, football, fishing, cooking, 3D printing, family activities, and athletic highlights.">
+  <meta
+    name="description"
+    content="Da'Marius' basketball, football, fishing, cooking, 3D printing, family activities, and athletic highlights.">
 
   <title>Da'Marius | Shelley Boys</title>
 
@@ -74,7 +76,9 @@
       margin-bottom: 40px;
     }
 
-    header, nav, footer {
+    header,
+    nav,
+    footer {
       margin-bottom: 20px;
     }
 
@@ -84,6 +88,57 @@
       margin-top: 15px;
       margin-bottom: 10px;
       color: #444;
+    }
+
+    /* Keeps videos lined up cleanly */
+    .video-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: flex-start;
+      margin-top: 15px;
+    }
+
+    .video-gallery iframe {
+      max-width: 100%;
+    }
+
+    /* Keeps images aligned at the top */
+    .photo-gallery {
+      margin-top: 15px;
+    }
+
+    .photo-gallery img {
+      vertical-align: top;
+    }
+
+    /* Mobile layout */
+    @media (max-width: 800px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: auto;
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .main {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .video-gallery {
+        flex-direction: column;
+      }
+
+      iframe {
+        width: 100%;
+        max-width: 480px;
+      }
     }
   </style>
 </head>
@@ -96,7 +151,6 @@
     <h1>Shelley Boys</h1>
     <p>Family blog and athlete highlights</p>
   </header>
-
 
   <nav>
     <a href="index.html">Home</a>
@@ -111,7 +165,6 @@
 
     <a href="shop.html">Shop</a>
   </nav>
-
 
   <div class="container">
 
@@ -197,62 +250,82 @@
 
       <article id="basketball-summer-2026">
 
-     
+        <h3>Basketball - Summer 2026</h3>
+
+        <p>
+          Summer basketball gives Da'Marius another opportunity to compete,
+          improve his skills, and continue building confidence on the court.
+        </p>
+
+        <div class="photo-gallery">
 
           <h4>Summer 2026 Highlights</h4>
 
-         
-           <section class="photo-gallery">
-    
+          <h3>Tag Me In (Brother Colab)</h3>
 
- <h3>Tag Me In (Brother Colab)</h3>
-    <p> Darius and Da'Marius got the rare chance to play together.
- Both brought their A game!</p>
           <p>
-<iframe width="480" height="320"
-src="https://www.youtube.com/embed/1clWJ6Ap-L0"
-frameborder="0" allowfullscreen></iframe>
+            Darius and Da'Marius got the rare chance to play together.
+            Both brought their A game!
+          </p>
+
+          <div class="video-gallery">
+
+            <iframe
+              width="480"
+              height="320"
+              src="https://www.youtube.com/embed/1clWJ6Ap-L0"
+              title="Tag Me In Brother Collaboration"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+
+          </div>
 
         </div>
-              <!-- 7/18/2026 Highlights -->
+
 
         <div class="photo-gallery">
 
           <h4>7/18/2026 Highlights</h4>
 
-          <iframe
-            width="480"
-            height="320"
-            src="https://www.youtube.com/embed/5KDAAU6bq7U"
-            title="Da'Marius 7/18/2026 Highlights"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+          <div class="video-gallery">
+
+            <iframe
+              width="480"
+              height="320"
+              src="https://www.youtube.com/embed/5KDAAU6bq7U"
+              title="Da'Marius 7/18/2026 Highlights"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+
+          </div>
 
         </div>
-    </section>
-          </p>
-          <section class="photos">
 
-             <div class="photo-gallery">
 
-              <iframe
-                width="480"
-                height="320"
-                src="https://www.youtube.com/embed/EL3ozVyFoLs"
-                title="Summer Basketball Highlights"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-              </iframe>
+        <div class="photo-gallery">
 
-            </div>
+          <h4>More Summer 2026 Highlights</h4>
 
-          </section>
+          <div class="video-gallery">
+
+            <iframe
+              width="480"
+              height="320"
+              src="https://www.youtube.com/embed/EL3ozVyFoLs"
+              title="Summer Basketball Highlights"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+
+          </div>
 
         </div>
-      
+
       </article>
 
 
@@ -316,15 +389,19 @@ frameborder="0" allowfullscreen></iframe>
 
         <div class="photo-gallery">
 
-          <iframe
-            width="480"
-            height="320"
-            src="https://www.youtube.com/embed/IeSN5L_gx5U"
-            title="Youth Basketball Highlights"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+          <div class="video-gallery">
+
+            <iframe
+              width="480"
+              height="320"
+              src="https://www.youtube.com/embed/IeSN5L_gx5U"
+              title="Youth Basketball Highlights"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+
+          </div>
 
           <img
             src="images/damarius/damarius-bb-22-w-1.JPG"
@@ -498,7 +575,6 @@ frameborder="0" allowfullscreen></iframe>
       </article>
 
     </div>
-
   </div>
 
 
