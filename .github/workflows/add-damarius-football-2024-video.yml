@@ -1,0 +1,36 @@
+name: Add DaMarius Football 2024 video
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  update:
+    if: github.event.head_commit.message != 'Add DaMarius Football Fall 2024 video [skip ci]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add video to existing 2024 football section
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('damarius.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('Football - 2024\n          </a>', 'Football - Fall 2024\n          </a>', 1)
+          s = s.replace('<h3>Football - 2024</h3>', '<h3>Football - Fall 2024</h3>', 1)
+          needle = '''        <div class="photo-gallery">\n\n          <img\n            src="images/damarius/damarius_fb_6.JPG"\n            alt="Football"\n            style="max-width:45%; margin:5px;">\n\n        </div>'''
+          replacement = needle + '''\n\n        <div class="video-gallery">\n          <iframe\n            width="480"\n            height="320"\n            src="https://www.youtube.com/embed/DciT3dAT8iA"\n            title="Da'Marius Football Fall 2024 Highlights"\n            frameborder="0"\n            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"\n            allowfullscreen>\n          </iframe>\n        </div>'''
+          if 'DciT3dAT8iA' not in s:
+              if needle not in s:
+                  raise SystemExit('Football 2024 section marker not found')
+              s = s.replace(needle, replacement, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add damarius.html
+          git commit -m "Add DaMarius Football Fall 2024 video [skip ci]"
+          git push
