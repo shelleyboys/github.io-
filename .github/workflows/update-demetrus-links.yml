@@ -1,0 +1,66 @@
+name: Update Demetrus navigation links
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update-links:
+    if: github.event.head_commit.message != 'Update Demetrus navigation links [skip ci]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update Demetrus links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          maxpreps = 'https://www.maxpreps.com/ar/nashville/nashville-scrappers/athletes/demetrus-shelley/bio/?careerid=qmdejdnfjhque'
+
+          for path in Path('.').glob('*.html'):
+              text = path.read_text(encoding='utf-8')
+              original = text
+
+              # Change only links whose visible label is Demetrus.
+              pattern = re.compile(
+                  r'<a\s+href="' + re.escape(maxpreps) + r'"\s*>\s*Demetrus\s*</a>',
+                  re.IGNORECASE | re.DOTALL,
+              )
+              text = pattern.sub('<a href="demetrus.html">Demetrus</a>', text)
+
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+
+          # Keep the High School sidebar link on Demetrus' own page pointed at MaxPreps,
+          # and clean up its label/markup while we are here.
+          demetrus = Path('demetrus.html')
+          if demetrus.exists():
+              text = demetrus.read_text(encoding='utf-8')
+              text = text.replace("<h3>Datavius' Highlights</h3>", "<h3>Demetrus' Highlights</h3>")
+              text = re.sub(
+                  r'<li>\s*<a\s+href="' + re.escape(maxpreps) + r'"\s*>\s*High School\s*(?:</a>)?\s*</li>',
+                  '<li>\n          <a href="' + maxpreps + '">High School</a>\n        </li>',
+                  text,
+                  flags=re.IGNORECASE | re.DOTALL,
+              )
+              demetrus.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add *.html
+          git commit -m "Update Demetrus navigation links [skip ci]"
+          git push
