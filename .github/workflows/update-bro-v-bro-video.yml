@@ -1,0 +1,35 @@
+name: Update Bro vs Bro video
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update-video:
+    if: github.event.head_commit.message != 'Update Bro vs Bro video [skip ci]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace Bro vs Bro video
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          old = 'https://www.youtube.com/embed/suZHxSwLZPQ'
+          new = 'https://www.youtube.com/embed/Qi5rCYynggQ'
+          for filename in ['darius.html', 'damarius.html']:
+              p = Path(filename)
+              text = p.read_text(encoding='utf-8')
+              if old not in text:
+                  raise SystemExit(f'Expected Bro vs Bro video not found in {filename}')
+              p.write_text(text.replace(old, new), encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add darius.html damarius.html
+          git commit -m "Update Bro vs Bro video [skip ci]"
+          git push
